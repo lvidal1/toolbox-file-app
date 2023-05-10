@@ -1,3 +1,6 @@
+const fs = require('fs')
+const path = require('path')
+
 class FileRepository {
   service
 
@@ -10,9 +13,20 @@ class FileRepository {
     return files
   }
 
-  async getByName (name) {
-    // retrieve the file with the specified name from the database or file system
-    // and return it as an object or null if not found
+  async downloadExternalFile (name) {
+    const response = await this.service.getFile(name)
+
+    const filePath = path.join(__dirname, '..', '..', '..', 'tmp', name)
+
+    const writer = fs.createWriteStream(filePath)
+    response.data.pipe(writer)
+
+    await new Promise((resolve, reject) => {
+      writer.on('finish', resolve)
+      writer.on('error', reject)
+    })
+
+    console.log('Image saved successfully!')
   }
 }
 

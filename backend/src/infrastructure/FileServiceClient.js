@@ -23,6 +23,16 @@ class FileServiceClient {
   request (endpoint) {
     return this.client.get(`${this.baseUrl}${endpoint}`)
   }
+
+  download (endpoint) {
+    return this.client.get(`${this.baseUrl}${endpoint}`, {
+      timeout: 100,
+      headers: {
+        accept: 'application/json',
+        responseType: 'stream'
+      }
+    })
+  }
 }
 
 export default FileServiceClient
