@@ -1,5 +1,3 @@
-// import FileService from '../services/FileService'
-
 class FileRepository {
   service
 
