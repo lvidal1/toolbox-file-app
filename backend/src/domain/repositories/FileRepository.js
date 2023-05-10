@@ -1,13 +1,18 @@
-import FileService from '../services/FileService'
+// import FileService from '../services/FileService'
 
 class FileRepository {
-  static async getAll () {
-    const files = await FileService.getFiles()
-    // perform any necessary transformations or validations on the data
+  service
+
+  constructor (thirdPartyService) {
+    this.service = thirdPartyService
+  }
+
+  async getFiles () {
+    const files = await this.service.getFiles()
     return files
   }
 
-  static async getByName (name) {
+  async getByName (name) {
     // retrieve the file with the specified name from the database or file system
     // and return it as an object or null if not found
   }

@@ -2,31 +2,19 @@ import FileServiceClient, { RESOURCE_ENDPOINT } from '../../infrastructure/FileS
 
 class FileService {
   client
-  static instance
 
   constructor () {
     this.client = new FileServiceClient()
   }
 
-  static getInstance () {
-    if (!FileService.instance) {
-      FileService.instance = new FileService()
-    }
-    return FileService.instance
-  }
-
-  static getClient () {
-    return FileService.getInstance().client
-  }
-
-  static async getFiles () {
+  async getFiles () {
     try {
-      const response = await this.getClient().request(RESOURCE_ENDPOINT.ALL_FILES)
+      const response = await this.client.request(RESOURCE_ENDPOINT.ALL_FILES)
       if (!response.ok) { throw new Error(response.statusText) }
 
       return await response.json()
     } catch (err) {
-      console.log(err)
+      throw new Error(err.message)
     }
   }
 }

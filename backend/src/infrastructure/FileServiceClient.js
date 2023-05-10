@@ -14,7 +14,7 @@ class FileServiceClient {
 
   request (endpoint) {
     return fetch(this.baseUrl + endpoint, {
-      headers: { authorization: 'Bearer ' + this.token }
+      headers: { authorization: 'Bearer s' + this.token }
     })
   }
 }
