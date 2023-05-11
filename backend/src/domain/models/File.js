@@ -8,13 +8,15 @@ class File {
   }
 
   formatLines (data) {
-    return data.map(({ text, number, hex }) => {
-      return {
-        text,
-        number: number && Number(number),
-        hex
-      }
-    })
+    return data
+      ? data.map(({ text, number, hex }) => {
+        return {
+          text,
+          number: number && Number(number),
+          hex
+        }
+      })
+      : []
   }
 
   formatToJson () {

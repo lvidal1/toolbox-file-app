@@ -45,8 +45,13 @@ class FileRepository {
 
       return (new File(name, data)).formatToJson()
     } catch (err) {
-      console.log(err)
+      console.error(err)
+      throw new Error('Impossible to read local file: ' + err)
     }
+  }
+
+  async mockFile (name) {
+    return (new File(name, null)).formatToJson()
   }
 
   async downloadExternalFile (name) {
@@ -54,12 +59,12 @@ class FileRepository {
       const response = await this.service.getFile(name)
       const filePath = getTempFilepath(name)
       fs.writeFileSync(filePath, response.data)
-      console.log('Image saved successfully!')
+      console.log('File saved successfully!')
 
       return filePath
     } catch (err) {
       console.error(err)
-      throw new Error('Impossible to write local file')
+      throw new Error('Impossible to write local file: ' + err)
     }
   }
 }

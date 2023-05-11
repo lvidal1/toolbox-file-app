@@ -5,13 +5,17 @@ class GetFile {
   static async execute (filename) {
     const repository = new FileRepository(new FileService())
 
-    const exists = await repository.getInternalFile(filename)
+    try {
+      const exists = await repository.getInternalFile(filename)
 
-    if (!exists) {
-      await repository.downloadExternalFile(filename)
+      if (!exists) {
+        await repository.downloadExternalFile(filename)
+      }
+
+      return await repository.readInternalFile(filename)
+    } catch (error) {
+      return repository.mockFile(filename)
     }
-
-    return await repository.readInternalFile(filename)
   }
 }
 
