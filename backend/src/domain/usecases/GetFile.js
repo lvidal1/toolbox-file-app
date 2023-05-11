@@ -1,16 +1,13 @@
 import FileRepository from '../repositories/FileRepository'
 import FileService from '../services/FileService'
+import DownloadFile from './DownloadFile'
 
 class GetFile {
-  static async execute (filename) {
+  static async execute (filename, fresh = false) {
     const repository = new FileRepository(new FileService())
 
     try {
-      const exists = await repository.getInternalFile(filename)
-
-      if (!exists) {
-        await repository.downloadExternalFile(filename)
-      }
+      await DownloadFile.execute(filename, fresh)
 
       return await repository.readInternalFile(filename)
     } catch (error) {

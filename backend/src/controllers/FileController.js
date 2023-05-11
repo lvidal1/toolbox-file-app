@@ -5,9 +5,9 @@ import ListExternalFiles from '../domain/usecases/ListExternalFiles'
 
 class FileController {
   async getFiles (req, res) {
-    const { fileName } = req.query
+    const { fileName, fresh } = req.query
     try {
-      const files = await GetFiles.execute(fileName)
+      const files = await GetFiles.execute(fileName, fresh)
       res.json(files)
     } catch (err) {
       res.statusMessage = err
