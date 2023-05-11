@@ -21,3 +21,10 @@ yarn.lock
 
 # Optional eslint cache directory
 .eslintcache/
+
+
+# temp folder content
+tmp/*
+
+# exception to folder
+!tmp/.gitkeep
