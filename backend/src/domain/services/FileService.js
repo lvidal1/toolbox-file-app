@@ -10,7 +10,7 @@ class FileService {
   async getFiles () {
     try {
       const response = await this.client.request(RESOURCE_ENDPOINT.ALL_FILES)
-      return await response.json()
+      return await response.data
     } catch (err) {
       throw new Error(err.message)
     }
