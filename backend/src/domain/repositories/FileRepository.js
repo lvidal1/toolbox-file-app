@@ -30,25 +30,23 @@ class FileRepository {
   async readInternalFile (name) {
     try {
       const filePath = getTempFilepath(name)
-      const csvData = fs.readFileSync(filePath, 'utf8');
+      const csvData = fs.readFileSync(filePath, 'utf8')
 
-      const lines = csvData.split('\n');
-      const headers = lines[0].split(',');
+      const lines = csvData.split('\n')
+      const headers = lines[0].split(',')
       const data = lines.slice(1).map((line) => {
-        const values = line.split(',');
-        const obj = {};
+        const values = line.split(',')
+        const obj = {}
         for (let i = 0; i < headers.length; i++) {
-          obj[headers[i]] = values[i] || null;
+          obj[headers[i]] = values[i] || null
         }
-        return obj;
-      });
+        return obj
+      })
 
-      return (new File(name, data)).formatToJson();
-
+      return (new File(name, data)).formatToJson()
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-
   }
 
   async downloadExternalFile (name) {

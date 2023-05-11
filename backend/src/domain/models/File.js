@@ -1,11 +1,10 @@
 class File {
-
   name
   lines
 
   constructor (name, data) {
-    this.name = name;
-    this.lines = this.formatLines(data);
+    this.name = name
+    this.lines = this.formatLines(data)
   }
 
   formatLines (data) {
@@ -24,7 +23,6 @@ class File {
       lines: this.lines
     }
   }
-
 }
 
 export default File

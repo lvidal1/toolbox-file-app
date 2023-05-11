@@ -30,7 +30,7 @@ class FileController {
 
     try {
       const file = await DownloadFile.execute(filename, fresh)
-      res.download(file);
+      res.download(file)
     } catch (err) {
       res.statusMessage = err
       return res.status(401).end()

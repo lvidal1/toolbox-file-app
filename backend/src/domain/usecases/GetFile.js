@@ -11,8 +11,7 @@ class GetFile {
       await repository.downloadExternalFile(filename)
     }
 
-    return await repository.readInternalFile(filename);
-
+    return await repository.readInternalFile(filename)
   }
 }
 
