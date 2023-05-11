@@ -3,15 +3,17 @@ import FileService from '../services/FileService'
 import GetFile from './GetFile'
 
 class GetFiles {
-  static async execute () {
+  static async execute (filename = null) {
     const repository = new FileRepository(new FileService())
 
     const { files } = await repository.getFiles()
 
     return await Promise.all(
-      files.map(async (file) => {
-        return await GetFile.execute(file)
-      })
+      files
+        .filter(file => filename ? file === filename : true)
+        .map(async (file) => {
+          return await GetFile.execute(file)
+        })
     )
   }
 }
