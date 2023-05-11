@@ -17,7 +17,7 @@ class FileController {
     console.log(filename)
     try {
       const file = await DownloadFile.execute(filename)
-      res.json(file)
+      res.download(file);
     } catch (err) {
       res.statusMessage = err
       return res.status(401).end()

@@ -5,8 +5,13 @@ class DownloadFile {
   static async execute (filename) {
     const repository = new FileRepository(new FileService())
 
-    const stream = await repository.downloadExternalFile(filename)
-    return stream
+    let filePath = await repository.getInternalFile(filename)
+
+    if (!filePath) {
+      filePath = await repository.downloadExternalFile(filename)
+    }
+
+    return filePath
   }
 }
 
