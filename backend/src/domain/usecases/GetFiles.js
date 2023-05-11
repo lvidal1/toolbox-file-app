@@ -8,13 +8,11 @@ class GetFiles {
 
     const { files } = await repository.getFiles()
 
-    const response = []
-
-    for (let i = 0; i < files.length; i++) {
-      response.push(await GetFile.execute(files[i]))
-    }
-
-    return response
+    return await Promise.all(
+      files.map(async (file) => {
+        return await GetFile.execute(file)
+      })
+    )
   }
 }
 
