@@ -1,5 +1,5 @@
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
 
 class FileRepository {
   service
@@ -14,19 +14,15 @@ class FileRepository {
   }
 
   async downloadExternalFile (name) {
-    const response = await this.service.getFile(name)
-
-    const filePath = path.join(__dirname, '..', '..', '..', 'tmp', name)
-
-    const writer = fs.createWriteStream(filePath)
-    response.data.pipe(writer)
-
-    await new Promise((resolve, reject) => {
-      writer.on('finish', resolve)
-      writer.on('error', reject)
-    })
-
-    console.log('Image saved successfully!')
+    try {
+      const response = await this.service.getFile(name)
+      const filePath = path.join(__dirname, '..', '..', '..', 'tmp', name)
+      fs.writeFileSync(filePath, response.data)
+      console.log('Image saved successfully!')
+    } catch (err) {
+      console.error(err)
+      throw new Error('Impossible to write local file')
+    }
   }
 }
 

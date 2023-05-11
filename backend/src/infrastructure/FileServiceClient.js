@@ -26,7 +26,7 @@ class FileServiceClient {
 
   download (endpoint) {
     return this.client.get(`${this.baseUrl}${endpoint}`, {
-      timeout: 100,
+      timeout: 500,
       headers: {
         accept: 'application/json',
         responseType: 'stream'
