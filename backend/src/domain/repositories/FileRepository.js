@@ -1,5 +1,5 @@
 import fs from 'fs'
-import path from 'path'
+import { getTempFilepath } from '../../paths'
 
 class FileRepository {
   service
@@ -16,8 +16,7 @@ class FileRepository {
   async downloadExternalFile (name) {
     try {
       const response = await this.service.getFile(name)
-      const filePath = path.join(__dirname, '..', '..', '..', 'tmp', name)
-      fs.writeFileSync(filePath, response.data)
+      fs.writeFileSync(getTempFilepath(name), response.data)
       console.log('Image saved successfully!')
     } catch (err) {
       console.error(err)
