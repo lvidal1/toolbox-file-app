@@ -1,4 +1,5 @@
 import DownloadFile from '../domain/usecases/DownloadFile'
+import GetFile from '../domain/usecases/GetFile'
 import GetFiles from '../domain/usecases/GetFiles'
 
 class FileController {
@@ -12,11 +13,23 @@ class FileController {
     }
   }
 
+  async getFile (req, res) {
+    const { filename } = req.params
+    try {
+      const rows = await GetFile.execute(filename)
+      res.json(rows)
+    } catch (err) {
+      res.statusMessage = err
+      return res.status(401).end()
+    }
+  }
+
   async downloadFile (req, res) {
     const { filename } = req.params
-    console.log(filename)
+    const { fresh } = req.query
+
     try {
-      const file = await DownloadFile.execute(filename)
+      const file = await DownloadFile.execute(filename, fresh)
       res.download(file);
     } catch (err) {
       res.statusMessage = err
