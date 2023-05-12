@@ -1,6 +1,10 @@
 import React from 'react'
+import { Route, Routes } from 'react-router'
+import { Files } from './pages/Files'
 const App = () => {
-  return <h1>Hello React</h1>
+  return <Routes>
+  <Route path="/" element={ <Files /> } />
+</Routes>
 }
 
 export default App
