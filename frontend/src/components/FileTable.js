@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getAll } from "../fileSlice";
-import { File } from "../types";
+import React from 'react'
+import { useGetAllFilesQuery } from '../store/slices/fileSlice'
 
 const FileTable = () => {
-  const [files, setFiles] = useState([]);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAll());
-  }, []);
-
+  const { data, error, isLoading, isSuccess } = useGetAllFilesQuery()
   return (
-    <ul>
-      {files.map((file) => (
-        <li key={file.id}>{file.name}</li>
-      ))}
-    </ul>
-  );
-};
+    <>
+      {isLoading && <div>Loading</div>}
+      {error && <div>Fail</div>}
+      {isSuccess && <ul>
+        {data.map((file) => (
+          <li key={file.file}>{file.file}</li>
+        ))}
+      </ul>}
+    </>
+  )
+}
 
-export default FileTable;
+export default FileTable
