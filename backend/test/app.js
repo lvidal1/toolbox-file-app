@@ -1,6 +1,3 @@
-// file: file_controller_test.js
-// process.env.PORT = 5002
-
 import chai, { expect } from 'chai'
 import chaiHttp from 'chai-http'
 import request from 'supertest'
@@ -52,32 +49,3 @@ describe('File API', () => {
     })
   })
 })
-
-// describe('FileController', () => {
-//   let controller;
-
-//   beforeEach(() => {
-//     controller = new FileController();
-//   });
-
-//   it('should get files', async () => {
-//     const fileName = 'test.txt';
-
-//     const expectedFiles = [{
-//       name: fileName,
-//       content: 'This is a test file.'
-//     }];
-
-//     const req = {
-//       query: {}
-//     };
-//     const res = {
-//       json: function () { return [] }
-//     };
-
-//     await controller.getFiles(req, res);
-
-//     expect(res.json).toHaveBeenCalledWith(expectedFiles);
-//   });
-
-// });
