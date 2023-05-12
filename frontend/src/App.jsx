@@ -1,9 +1,11 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
-import { Files } from './pages/Files'
+import { FileList } from './pages/FilesList'
+import { FileDetail } from './pages/FileDetail'
 const App = () => {
   return <Routes>
-  <Route path="/" element={ <Files /> } />
+  <Route path="/" element={ <FileList /> } />
+  <Route path="detail" element={ <FileDetail /> } />
 </Routes>
 }
 
