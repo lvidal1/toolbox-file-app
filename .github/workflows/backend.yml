@@ -1,0 +1,45 @@
+name: Backend Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: testing
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set Node.js 14.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          dir: "backend"
+          cmd: install
+
+      - name: Run lint in sub-folder
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint
+          dir: "backend"
+
+      - name: Run test in sub-folder
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: test
+          dir: "backend"
+
+env:
+  PORT: ${{ secrets.PORT }}
+  TEMP_FOLDER: ${{ secrets.TEMP_FOLDER }}
+  EXTERNAL_ECHO_API_URL: ${{ secrets.EXTERNAL_ECHO_API_URL }}
+  EXTERNAL_ECHO_API_TOKEN: ${{ secrets.EXTERNAL_ECHO_API_TOKEN }}
