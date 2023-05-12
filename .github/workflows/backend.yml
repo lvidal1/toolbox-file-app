@@ -13,25 +13,30 @@ jobs:
     runs-on: ubuntu-latest
     environment: testing
     steps:
-      - uses: actions/checkout@v2
-      - name: Install yarn
-        run: |
-          curl -sS https://dl.yarnpkg.com/debian/install.sh | bash
-      - name: Configure yarn
-        run: |
-          yarn config set --global prefix /usr/local/bin
-      - name: Change directory to backend
-        run: |
-          cd backend
-      - name: Install dependencies
-        run: |
-          yarn install
-      - name: Lint check
-        run: |
-          yarn lint-check
-      - name: Test
-        run: |
-          yarn test
+      - uses: actions/checkout@v3
+
+      - name: Set Node.js 14.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          dir: "backend"
+          cmd: install
+
+      - name: Run lint in sub-folder
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint
+          dir: "backend"
+
+      - name: Run test in sub-folder
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: test
+          dir: "backend"
 
 env:
   PORT: ${{ secrets.PORT }}
