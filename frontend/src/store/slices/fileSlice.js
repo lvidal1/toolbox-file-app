@@ -18,10 +18,14 @@ const fileSlice = createApi({
         validateStatus: (response, result) =>
           response.status === 200 && !result.isError
       })
+    }),
+
+    getFilesByName: builder.query({
+      query: ({ fileName }) => `files/data?fileName=${fileName}`
     })
   })
 })
 
 export default fileSlice
 
-export const { useGetAllFilesQuery } = fileSlice
+export const { useGetAllFilesQuery, useGetFilesByNameQuery } = fileSlice
