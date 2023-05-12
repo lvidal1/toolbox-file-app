@@ -21,7 +21,7 @@ class File {
 
   formatToJson () {
     return {
-      name: this.name,
+      file: this.name,
       lines: this.lines
     }
   }

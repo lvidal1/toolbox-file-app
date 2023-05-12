@@ -30,6 +30,10 @@ class App {
       )
     })
   }
+
+  getInstance () {
+    return this.app
+  }
 }
 
 export default App
