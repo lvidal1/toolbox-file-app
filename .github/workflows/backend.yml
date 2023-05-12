@@ -1,0 +1,40 @@
+name: Backend Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: testing
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install yarn
+        run: |
+          curl -sS https://dl.yarnpkg.com/debian/install.sh | bash
+      - name: Configure yarn
+        run: |
+          yarn config set --global prefix /usr/local/bin
+      - name: Change directory to backend
+        run: |
+          cd backend
+      - name: Install dependencies
+        run: |
+          yarn install
+      - name: Lint check
+        run: |
+          yarn lint-check
+      - name: Test
+        run: |
+          yarn test
+
+env:
+  PORT: ${{ secrets.PORT }}
+  TEMP_FOLDER: ${{ secrets.TEMP_FOLDER }}
+  EXTERNAL_ECHO_API_URL: ${{ secrets.EXTERNAL_ECHO_API_URL }}
+  EXTERNAL_ECHO_API_TOKEN: ${{ secrets.EXTERNAL_ECHO_API_TOKEN }}
