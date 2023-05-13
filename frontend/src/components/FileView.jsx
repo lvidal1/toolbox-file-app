@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { useGetFilesByNameQuery } from '../store/slices/fileSlice';
 import { Loader } from './Loader';
+import ErrorMessage from './ErrorMessage';
 
 const COLUMNS = {
   file: 'File',
@@ -55,7 +56,7 @@ const FileView = ({ filename }) => {
   return (
     <>
       {isLoading && <Loader />}
-      {error && <div>Fail</div>}
+      {error && <ErrorMessage message={'Fail to fetch file'} />}
       {isSuccess &&
         (data.length > 0 ? (
           <Table responsive="md" striped bordered className="bg-white">
@@ -69,7 +70,7 @@ const FileView = ({ filename }) => {
             <tbody>{renderLines(lines)}</tbody>
           </Table>
         ) : (
-          <h4 className="text-center my-3">File was not found</h4>
+          <ErrorMessage message={'File was not found'} />
         ))}
     </>
   );
