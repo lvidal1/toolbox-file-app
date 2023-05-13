@@ -56,18 +56,21 @@ const FileView = ({ filename }) => {
     <>
       {isLoading && <Loader />}
       {error && <div>Fail</div>}
-      {isSuccess && data.length > 0 && (
-        <Table responsive="md" striped bordered className="bg-white">
-          <thead>
-            <tr>
-              {ColumnMap.map(([key, label]) => (
-                <th key={key}>{label}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>{renderLines(lines)}</tbody>
-        </Table>
-      )}
+      {isSuccess &&
+        (data.length > 0 ? (
+          <Table responsive="md" striped bordered className="bg-white">
+            <thead>
+              <tr>
+                {ColumnMap.map(([key, label]) => (
+                  <th key={key}>{label}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>{renderLines(lines)}</tbody>
+          </Table>
+        ) : (
+          <h4 className="text-center my-3">File was not found</h4>
+        ))}
     </>
   );
 };
