@@ -2,14 +2,18 @@ name: Backend Project
 
 on:
   push:
+    paths:
+      - "backend/**"
     branches:
       - main
   pull_request:
+    paths:
+      - "backend/**"
     branches:
       - main
 
 jobs:
-  build:
+  build-backend:
     runs-on: ubuntu-latest
     environment: testing
     steps:
