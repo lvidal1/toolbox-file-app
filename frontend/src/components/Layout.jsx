@@ -23,7 +23,6 @@ export const Layout = ({ children, title, subtitle, backLink }) => {
         <Container fluid className={styles.mainContainer}>
           <Container>
           {children}
-
           </Container>
         </Container>
       </main>
