@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 
 export const FileCard = ({ title, content }) => {
@@ -12,7 +12,9 @@ export const FileCard = ({ title, content }) => {
         </Card.Text>
       </Card.Body>
       <Card.Body>
-        <Card.Link href="#">See more</Card.Link>
+        <Card.Link href="#">
+          <Link to={`file?filename=${title}`}>See more</Link>
+        </Card.Link>
       </Card.Body>
     </Card>
   )

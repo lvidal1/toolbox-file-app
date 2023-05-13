@@ -21,7 +21,7 @@ const fileSlice = createApi({
     }),
 
     getFilesByName: builder.query({
-      query: ({ fileName }) => `files/data?fileName=${fileName}`
+      query: ({ filename }) => `files/data?fileName=${filename}`
     })
   })
 })

@@ -9,9 +9,8 @@ const COLUMNS = {
   hex: 'Hex'
 }
 
-const FileView = () => {
-  const file = 'test6.csv'
-  const { data, error, isLoading, isSuccess } = useGetFilesByNameQuery({ fileName: file })
+const FileView = ({ filename }) => {
+  const { data, error, isLoading, isSuccess } = useGetFilesByNameQuery({ filename })
 
   // const [heading, setHeading] = useState([])
   const [lines, setLines] = useState([])
@@ -20,7 +19,7 @@ const FileView = () => {
     return lines.map((line) => {
       return {
         ...line,
-        file
+        file: filename
       }
     })
   }
