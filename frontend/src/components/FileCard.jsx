@@ -13,11 +13,13 @@ export const FileCard = ({ title, lines }) => {
 
   const hasContent = lines && lines.length > 0;
 
+  const description = () => (hasContent ? `It has ${lines.length} lines` : 'No content');
+
   return (
     <Card className={styles.card}>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>It has {lines.length} lines</Card.Text>
+        <Card.Text>{description()}</Card.Text>
       </Card.Body>
       <Card.Body className="d-flex justify-content-between">
         <Link to={`file?fileName=${title}`} className={styles.link} title="See more">
