@@ -1,0 +1,20 @@
+@import './main.scss';
+
+$link-color: $gray-800;
+$link-color-hover: $danger;
+
+.card {
+  @extend #{'.border', '.border-0', '.rounded-0'};
+  width: 18rem;
+  transition: box-shadow 0.2s ease-out;
+  &:hover {
+    @extend .shadow;
+  }
+}
+
+.link {
+  color: $link-color;
+  &:hover {
+    color: darken($link-color-hover, 10%);
+  }
+}
