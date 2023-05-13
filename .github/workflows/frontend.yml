@@ -27,14 +27,20 @@ jobs:
       - name: Run install
         uses: borales/actions-yarn@v4
         with:
-          dir: "backend"
+          dir: "frontend"
           cmd: install
 
       - name: Run lint in sub-folder
         uses: borales/actions-yarn@v4
         with:
           cmd: lint
-          dir: "backend"
+          dir: "frontend"
+
+      - name: Run prettier in sub-folder
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: prettier
+          dir: "frontend"
 
 env:
   PORT: ${{ secrets.PORT }}
