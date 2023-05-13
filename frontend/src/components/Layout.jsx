@@ -1,26 +1,32 @@
-import React from 'react'
+import React from 'react';
 
-import Container from 'react-bootstrap/Container'
-import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container';
+import { Link } from 'react-router-dom';
+import styles from '../styles/Layout.module.scss';
+import Footer from './Footer';
+import Header from './Header';
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, title, subtitle, backLink }) => {
   return (
     <>
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="#home">Files</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Signed in as: <a href="#login">Leonardo V.</a>
-          </Navbar.Text>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    <Container className='py-5'>
-    {children}
-    </Container>
-
+      <Header />
+      <main>
+        <Container fluid className={styles.titleContainer}>
+          <Container>
+            {title && <h1 className={styles.title}>{title}</h1>}
+            {subtitle && <p className={`lead ${!backLink ? 'mb-5' : 'mb-2'}`}>{subtitle}</p>}
+            {backLink && (
+              <div className={styles.back}>
+                <Link to={backLink}>Back</Link>
+              </div>
+            )}
+          </Container>
+        </Container>
+        <Container fluid className={styles.mainContainer}>
+          <Container>{children}</Container>
+        </Container>
+      </main>
+      <Footer />
     </>
-  )
-}
+  );
+};
