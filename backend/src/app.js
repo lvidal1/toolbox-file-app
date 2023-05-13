@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import main from './routes/main'
 import files from './routes/files'
 
 class App {
@@ -8,7 +9,7 @@ class App {
 
   constructor (port) {
     this.app = express()
-    this.port = port
+    this.port = port || 3000
 
     this.middleware()
     this.routes()
@@ -20,6 +21,7 @@ class App {
   }
 
   routes () {
+    this.app.use('/', main)
     this.app.use('/files', files)
   }
 

@@ -8,7 +8,8 @@
     "test": "export DOTENV_CONFIG_PATH=.env.test && mocha ./test/* --require @babel/register  --recursive --timeout 10000 --exit",
     "lint": "eslint \"./**/*.js\" --quiet",
     "lint-full": "eslint \"./**/*.js\"",
-    "lint-fix": "eslint --fix './**/*.js'"
+    "lint-fix": "eslint --fix './**/*.js'",
+    "build": "npm install"
   },
   "keywords": [],
   "author": "lvidal1",
