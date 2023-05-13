@@ -3,7 +3,7 @@ import App from './src/app'
 
 dotenv.config()
 
-const app = new App(parseInt(process.env.PORT || '5000'))
+const app = new App(process.env.PORT)
 
 app.listen()
 

@@ -48,6 +48,10 @@ class FileController {
       return res.status(401).end()
     }
   }
+
+  async health (req, res) {
+    return res.status(200).end()
+  }
 }
 
 export default FileController
