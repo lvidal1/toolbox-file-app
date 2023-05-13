@@ -37,7 +37,7 @@ const FileView = ({ filename }) => {
       return lines.map((line, index) => (
         <tr key={index}>
           {ColumnMap.map(([key, _]) => (
-            <td key={key}>{line[key]}</td>
+            <td key={key}>{line[key] || '-'}</td>
           ))}
         </tr>
       ));
