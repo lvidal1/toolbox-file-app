@@ -1,7 +1,5 @@
 # toolbox-file-app
 
-# Grid card
-
 This is a fullstack project built with Express.js, Webpack and React.
 
 ## Getting Started
@@ -47,6 +45,8 @@ Open [http://localhost:5000](http://localhost:5000) with your browser to see the
 :rocket: Check it out on https://toolbox-file-app.netlify.app/
 
 :round_pushpin: It renders a demo static front-end that shows the availables files from the 3rd party API.
+
+:round_pushpin: The front-end is deployed on [Netlify](https://www.netlify.com/) and the API is deployed on [Render](https://render.com/)
 
 ## Features
 
