@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/Layout.module.scss';
 import Footer from './Footer';
 import Header from './Header';
+import BackIcon from './icons/BackIcon';
 
 export const Layout = ({ children, title, subtitle, backLink }) => {
   return (
@@ -16,9 +17,9 @@ export const Layout = ({ children, title, subtitle, backLink }) => {
             {title && <h1 className={styles.title}>{title}</h1>}
             {subtitle && <p className={`lead ${!backLink ? 'mb-5' : 'mb-2'}`}>{subtitle}</p>}
             {backLink && (
-              <div className={styles.back}>
-                <Link to={backLink}>Back</Link>
-              </div>
+              <Link to={backLink} className={styles.back}>
+                <BackIcon /> Back
+              </Link>
             )}
           </Container>
         </Container>

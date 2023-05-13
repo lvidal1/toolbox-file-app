@@ -1,5 +1,8 @@
 @import './main.scss';
 
+$back-color: $danger;
+$back-color-hover: $danger;
+
 .navbar {
   @extend .shadow-sm;
   background-color: darken($danger, 10%);
@@ -16,6 +19,11 @@
 
 .back {
   @extend .mb-4;
+  text-decoration: none;
+  color: $back-color;
+  &:hover {
+    color: darken($back-color-hover, 10%);
+  }
 }
 
 .mainContainer {

@@ -43,6 +43,6 @@ module.exports = {
     new Dotenv({ systemvars: true })
   ],
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['.*', '.js', '.jsx']
   }
 };
