@@ -11,15 +11,13 @@ const COLUMNS = {
 
 const FileView = ({ filename }) => {
   const { data, error, isLoading, isSuccess } = useGetFilesByNameQuery({ filename })
-
-  // const [heading, setHeading] = useState([])
   const [lines, setLines] = useState([])
 
   const mapLines = (lines, file) => {
     return lines.map((line) => {
       return {
         ...line,
-        file: filename
+        file
       }
     })
   }

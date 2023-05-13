@@ -3,12 +3,13 @@ import { useGetAllFilesQuery } from '../store/slices/fileSlice'
 import { FileCard } from './FileCard'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { Loader } from './Loader'
 
 const FileTable = () => {
   const { data, error, isLoading, isSuccess } = useGetAllFilesQuery()
   return (
     <>
-      {isLoading && <div>Loading</div>}
+      {isLoading && <Loader />}
       {error && <div>Fail</div>}
       {isSuccess && <Row>
 

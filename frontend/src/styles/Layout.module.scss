@@ -1,0 +1,6 @@
+@import "./main.scss";
+
+.navbar {
+  @extend .shadow-sm;
+  background-color: darken($danger, 10%);
+}
