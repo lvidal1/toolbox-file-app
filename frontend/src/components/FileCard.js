@@ -13,7 +13,7 @@ export const FileCard = ({ title, content }) => {
       </Card.Body>
       <Card.Body>
         <Card.Link href="#">
-          <Link to={`file?filename=${title}`}>See more</Link>
+          <Link to={`file?fileName=${title}`}>See more</Link>
         </Card.Link>
       </Card.Body>
     </Card>
