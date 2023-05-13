@@ -6,12 +6,10 @@ import styles from '../styles/Layout.module.scss';
 import Footer from './Footer';
 import Header from './Header';
 import BackIcon from './icons/BackIcon';
-import ScrollToTop from './ScrollToTop';
 
 export const Layout = ({ children, title, subtitle, backLink }) => {
   return (
     <>
-      <ScrollToTop />
       <Header />
       <main>
         <Container fluid className={styles.titleContainer}>
