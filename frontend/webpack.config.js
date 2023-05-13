@@ -6,7 +6,8 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'build')
     },
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   },
   entry: './src/index.js',
   module: {
@@ -31,7 +32,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
