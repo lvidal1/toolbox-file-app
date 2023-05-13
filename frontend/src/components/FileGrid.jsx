@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Loader } from './Loader';
 
-const FileTable = () => {
+const FileGrid = () => {
   const { data, error, isLoading, isSuccess } = useGetAllFilesQuery();
   return (
     <>
@@ -25,4 +25,4 @@ const FileTable = () => {
   );
 };
 
-export default FileTable;
+export default FileGrid;
