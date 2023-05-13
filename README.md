@@ -50,13 +50,17 @@ Open [http://localhost:5000](http://localhost:5000) with your browser to see the
 
 ## Features
 
-:newspaper: It retrieves all the available file information from the custom API
+:newspaper: The node server acts as a middleware to fetch data from a 3rd Party API and expose a custom API
 
-:newspaper: It shows a responsive card list using the available files
+:newspaper: The custom API exposes an endpoint to retrieve all available files. The data is formated.
 
-:mag: It displays a link to see the card detail.
+:newspaper: Also, the API exposes an endpoint to retrieves a single file using a query param.
 
-:ticket: It allows to see the full content of the file on a separated page
+:newspaper: The UI retrieves the available files from the custom API and shows a responsive card list using Bootstrap and RTK slices
+
+:newspaper: Each card displays a link to see the its detail
+
+:newspaper: In addition, it allows to see the full content of the file on a separated page
 
 ## Stack
 
