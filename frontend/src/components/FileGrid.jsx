@@ -16,7 +16,7 @@ const FileGrid = () => {
         (data.length > 0 ? (
           <Row>
             {data.map(({ file, lines }) => (
-              <Col key={file} className="mb-3">
+              <Col key={file} className="mb-3 d-flex justify-content-center">
                 <FileCard title={file} lines={lines} />
               </Col>
             ))}
