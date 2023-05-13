@@ -1,6 +1,6 @@
 import React from 'react';
-import GithubIcon from './GithubIcon';
-import PortfolioIcon from './PortfolioIcon';
+import GithubIcon from './icons/GithubIcon';
+import PortfolioIcon from './icons/PortfolioIcon';
 
 export default function Footer() {
   return (

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/Layout.module.scss';
 import Footer from './Footer';
 import Header from './Header';
-import BackIcon from './BackIcon';
+import BackIcon from './icons/BackIcon';
 
 export const Layout = ({ children, title, subtitle, backLink }) => {
   return (

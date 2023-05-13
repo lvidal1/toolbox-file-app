@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { baseUrl } from '../config';
-import DownloadIcon from './DownloadIcon';
-import EyeIcon from './EyeIcon';
+import DownloadIcon from './icons/DownloadIcon';
+import EyeIcon from './icons/EyeIcon';
 import styles from '../styles/FileCard.module.scss';
 
 export const FileCard = ({ title, lines }) => {
