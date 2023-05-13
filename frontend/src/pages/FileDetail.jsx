@@ -12,8 +12,7 @@ export const FileDetail = () => {
     <Layout
       title={`Detail of ${filename}`}
       subtitle={'This is the content of the file'}
-      backLink={'/'}
-    >
+      backLink={'/'}>
       {filename && (
         <>
           <FileView filename={filename} />
