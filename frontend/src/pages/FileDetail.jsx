@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 export const FileDetail = () => {
   const [searchParams] = useSearchParams();
 
-  const filename = searchParams.get('fileName');
+  const filename = searchParams.get('fileName') || searchParams.get('filename');
 
   return (
     <Layout
