@@ -1,9 +1,9 @@
-import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import styles from '../styles/Layout.module.scss'
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import styles from '../styles/Layout.module.scss';
 
-export default function Header () {
+export default function Header() {
   return (
     <header>
       <Navbar className={styles.navbar} variant="dark">
@@ -18,5 +18,5 @@ export default function Header () {
         </Container>
       </Navbar>
     </header>
-  )
+  );
 }

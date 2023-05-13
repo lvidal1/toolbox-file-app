@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export const Loader = () => {
   return (
@@ -7,5 +7,5 @@ export const Loader = () => {
         <span className="visually-hidden">Loading...</span>
       </div>
     </div>
-  )
-}
+  );
+};
