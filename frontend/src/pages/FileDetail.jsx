@@ -9,9 +9,7 @@ export const FileDetail = () => {
   const filename = searchParams.get('fileName')
 
   return <Layout title={`Detail of ${filename}`} subtitle={'This is the content of the file'} backLink={'/'} >
-
     {filename && <>
-
       <FileView filename={filename} />
     </>}
   </Layout>

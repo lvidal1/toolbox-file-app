@@ -4,3 +4,22 @@
   @extend .shadow-sm;
   background-color: darken($danger, 10%);
 }
+
+.titleContainer {
+  @extend .py-5;
+}
+
+.title {
+  @extend .mb-2;
+  background-color: $white;
+}
+
+.back {
+  @extend .mb-4;
+}
+
+.mainContainer {
+  @extend .py-5;
+  background-color: $gray-200;
+  min-height: 80vh;
+}

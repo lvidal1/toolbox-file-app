@@ -12,13 +12,10 @@ const FileTable = () => {
       {isLoading && <Loader />}
       {error && <div>Fail</div>}
       {isSuccess && <Row>
-
         {data.map(({ file, lines }) => (
           <Col key={file} className='mb-3'> <FileCard title={file} content={lines} /></Col>
         ))}
-
       </Row>
-
       }
     </>
   )
