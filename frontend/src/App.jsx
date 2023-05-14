@@ -1,15 +1,18 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router';
-import { FileList } from './pages/FilesList';
-import { FileDetail } from './pages/FileDetail';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './router';
+import { Provider } from 'react-redux';
+import store from './store';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/main.scss';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<FileList />} />
-      <Route path="/file" element={<FileDetail />} />
-      <Route path="/*" element={<Navigate to="/" />} />
-    </Routes>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </Provider>
   );
 };
 
