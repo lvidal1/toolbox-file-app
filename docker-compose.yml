@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - TEMP_FOLDER=tmp
+      - EXTERNAL_ECHO_API_URL=https://echo-serv.tbxnet.com/v1
+      - EXTERNAL_ECHO_API_TOKEN=[insert-your-token-here]
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - API_URL=http://localhost:3000/
