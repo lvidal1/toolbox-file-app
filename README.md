@@ -1,16 +1,31 @@
-# toolbox-file-app
+# Toolbox file app
 
 This is a fullstack project built with Express.js, Webpack and React.
 
 ## Getting Started
 
-#### API Dev server
+#### Use docker Compose
+
+:lion: Replace the `[insert-your-token-here]` with your token key for the https://echo-serv.tbxnet.com 3rd party API on the `docker-compose.yml` file.
+
+:lion: Run the containers:
+
+```bash
+docker-compose up -d
+```
+
+or
+
+#### Use npm to run the API Dev server
 
 :lion: Run the development server:
 
 ```bash
 # Move to the backend folder
 cd backend
+
+## Copy the .env.example file to .env and fill the EXTERNAL_ECHO_API_TOKEN var
+cp .env.example .env
 
 # Run the app
 npm install
@@ -22,13 +37,16 @@ yarn start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-#### Frontend Dev server
+#### Use npm to run Frontend Dev server
 
 :lion: Run the development server:
 
 ```bash
 # Move to the frontend folder
 cd frontend
+
+## Copy the .env.example file to .env
+cp .env.example .env
 
 # Run the app
 npm install
