@@ -1,7 +1,8 @@
 import '@testing-library/jest-dom';
-import { server } from './mocks/api/server';
+
 import createStore from '../src/store';
 import fileSlice from '../src/store/slices/fileSlice';
+import { server } from './mock/server';
 
 const store = createStore({});
 

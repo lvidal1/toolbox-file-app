@@ -6,7 +6,7 @@ import DownloadIcon from './icons/DownloadIcon';
 import EyeIcon from './icons/EyeIcon';
 import styles from '../styles/FileCard.module.scss';
 
-export const FileCard = ({ title, lines }) => {
+export const FileCard = ({ title, lines, dataTestId }) => {
   const handleDownload = (filename) => {
     return `${baseUrl}files/download/${filename}`;
   };
@@ -16,7 +16,7 @@ export const FileCard = ({ title, lines }) => {
   const description = () => (hasContent ? `It has ${lines.length} lines` : 'No content');
 
   return (
-    <Card className={styles.card}>
+    <Card className={styles.card} data-testid={dataTestId}>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description()}</Card.Text>
